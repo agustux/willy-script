@@ -72,7 +72,6 @@ monitor.bluez.properties = {
   bluez5.codecs = [ sbc sbc_xq aac ]
 }
 EOF
-sudo systemctl restart wireplumber
 
 # ProtonVPN:
 wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.8_all.deb
