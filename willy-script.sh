@@ -125,7 +125,7 @@ sudo apt install ./greenlight*.deb -y
 rm greenlight*.deb
 
 # MultiMC
-sudo apt install libqt5core5a libqt5network5 libqt5gui5 -y
+sudo apt install libqt5core5a libqt5network5 libqt5gui5 default-jre -y
 wget -O multimc.deb "https://files.multimc.org/downloads/multimc_1.6-1.deb"
 sudo apt install ./multimc.deb -y
 rm multimc.deb
