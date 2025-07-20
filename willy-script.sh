@@ -72,7 +72,7 @@ monitor.bluez.properties = {
   bluez5.codecs = [ sbc sbc_xq aac ]
 }
 EOF
-# sudo systemctl restart wireplumber
+sudo systemctl restart wireplumber
 
 # ProtonVPN:
 wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.8_all.deb
@@ -107,7 +107,7 @@ gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 gsettings set org.gnome.desktop.peripherals.touchpad disable-while-typing false
 
-# Steam:
+# Steam Installer:
 wget https://repo.steampowered.com/steam/archive/stable/steam_latest.deb
 sudo apt install ./steam_latest.deb -y
 rm steam_latest.deb
@@ -125,6 +125,12 @@ curl -LO "$(curl -s https://api.github.com/repos/unknownskl/greenlight/releases/
 sudo apt install ./greenlight*.deb -y
 rm greenlight*.deb
 
-steam
+# MultiMC
+sudo apt install libqt5core5a libqt5network5 libqt5gui5 -y
+wget -O multimc.deb "https://files.multimc.org/downloads/multimc_1.6-1.deb"
+sudo apt install ./multimc.deb -y
+rm multimc.deb
 
+# Installing Steam and dependencies
+steam
 rm -rf Desktop/*
