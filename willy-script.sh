@@ -55,7 +55,7 @@ After=multi-user.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/intel_gpu_frequency -m 750
+ExecStart=/usr/bin/intel_gpu_frequency --max
 RemainAfterExit=true
 
 [Install]
