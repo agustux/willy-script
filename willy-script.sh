@@ -46,10 +46,33 @@ sudo chown root:root /etc/apt/preferences.d/no-snap.pref
 
 sudo apt autoremove --purge -y
 
+# CPU max frequency on startup:
+sudo apt install cpufrequtils -y
+sudo tee /etc/systemd/system/set-cpufreq.service > /dev/null <<EOF
+[Unit]
+Description=Set CPU governor to performance
+After=multi-user.target
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/set-cpufreq.sh
+RemainAfterExit=true
+[Install]
+WantedBy=multi-user.target
+EOF
+sudo tee /usr/bin/set-cpufreq.sh > /dev/null <<EOF
+#!/bin/bash
+for cpu in /sys/devices/system/cpu/cpu[0-3]*; do
+  cpufreq-set -c "${cpu##*/cpu}" -g performance
+done
+EOF
+sudo chmod +x /usr/bin/set-cpufreq.sh
+sudo systemctl daemon-reload
+sudo systemctl enable set-cpufreq.service
+
 # iGPU max frequency on startup:
 sudo apt install intel-gpu-tools -y
 sudo tee /etc/systemd/system/igpu-maxfreq.service > /dev/null <<EOF
-[[Unit]
+[Unit]
 Description=Set Intel iGPU to max frequency
 After=multi-user.target
 
