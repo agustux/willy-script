@@ -46,6 +46,24 @@ sudo chown root:root /etc/apt/preferences.d/no-snap.pref
 
 sudo apt autoremove --purge -y
 
+# iGPU max frequency on startup:
+sudo apt install intel-gpu-tools -y
+sudo tee /etc/systemd/system/igpu-maxfreq.service > /dev/null <<EOF
+[[Unit]
+Description=Set Intel iGPU to max frequency
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/intel_gpu_frequency -m 750
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
+EOF
+sudo systemctl daemon-reexec
+sudo systemctl enable igpu-maxfreq.service
+
 # Sublime Text:
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo tee /etc/apt/keyrings/sublimehq-pub.asc > /dev/null
 echo -e 'Types: deb\nURIs: https://download.sublimetext.com/\nSuites: apt/stable/\nSigned-By: /etc/apt/keyrings/sublimehq-pub.asc' | sudo tee /etc/apt/sources.list.d/sublime-text.sources
