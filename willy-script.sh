@@ -10,6 +10,10 @@ sudo swapoff -a -v
 sudo rm /swap.img
 sudo sed -i '/^\/swap\.img/s/^/#/' /etc/fstab
 
+# Purging Useless GNOME utilities:
+sudo apt purge software-properties-* gnome-font-viewer update-manager gnome-remote-desktop -y
+sudo apt autoremove --purge -y
+
 # Misc:
 sudo add-apt-repository multiverse -y
 sudo apt update
