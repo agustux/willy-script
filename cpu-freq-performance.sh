@@ -30,19 +30,7 @@ sudo systemctl enable set-cpufreq.service
 
 # watch -n 1 "cat /proc/cpuinfo | grep MHz"
 
-
-wget https://discord.com/api/download?platform=linux&format=deb -O discord.deb
-sudo dpkg -i ./discord.deb
-rm discord.deb
-
-# open /etc/sysctl.conf as root and add/change:
-vm.swappiness = 10
-
-# preload preloads often used applications to ram to be faster:
-sudo apt-get install preload
-
 # In ubuntu settings, disable the search results characters, passwords, and clocks
-
 
 # STEAM OPTIMIZATIONS:
 # Head to steam settings
