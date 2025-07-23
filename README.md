@@ -13,3 +13,7 @@ To disable some startup processes: `sudo sed -i 's/NoDisplay=true/NoDisplay=fals
 Real-time CPU frequency reading: `watch -n1 "grep 'MHz' /proc/cpuinfo"`
 
 Current CPU temperatures: `paste <(cat /sys/class/thermal/thermal_zone*/type) <(cat /sys/class/thermal/thermal_zone*/temp) | column -s $'\t' -t | sed 's/\(.\)..$/.\1°C/'`
+
+Current iGPU freq: `sudo intel_gpu_top`
+
+To see max iGPU freq: `sudo intel_gpu_frequency --max`
