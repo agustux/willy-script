@@ -11,7 +11,7 @@ sudo rm /swap.img
 sudo sed -i '/^\/swap\.img/s/^/#/' /etc/fstab
 
 # Purging Useless GNOME utilities:
-sudo apt purge software-properties-* gnome-font-viewer update-manager gnome-remote-desktop -y
+sudo apt purge software-properties-* gnome-font-viewer update-manager gnome-remote-desktop gnome-user-docs gnome-characters gnome-logs -y
 sudo apt autoremove --purge -y
 
 # Misc:
@@ -178,3 +178,6 @@ rm multimc.deb
 # Installing Steam and dependencies
 steam
 rm -rf Desktop/*
+
+sudo apt autoclean
+sudo apt clean
