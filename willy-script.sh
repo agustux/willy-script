@@ -17,7 +17,7 @@ sudo apt autoremove --purge -y
 # Misc:
 sudo add-apt-repository multiverse -y
 sudo apt update
-sudo apt install curl git vim exfat-fuse gnome-tweaks vlc gnome-shell-extensions gnome-shell-extension-manager cpufrequtils preload -y
+sudo apt install curl git vim exfat-fuse gnome-tweaks vlc gnome-shell-extensions gnome-shell-extension-manager cpufrequtils -y
 
 # Randomizing MAC address:
 sudo tee /etc/NetworkManager/conf.d/mac-randomize.conf > /dev/null <<EOF
