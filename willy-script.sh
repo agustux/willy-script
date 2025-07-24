@@ -10,15 +10,15 @@ sudo swapoff -a -v
 sudo rm /swap.img
 sudo sed -i '/^\/swap\.img/s/^/#/' /etc/fstab
 
-# Purging Useless GNOME utilities:
+# Purging Useless GNOME and Ubuntu utilities:
 sudo apt purge software-properties-* gnome-font-viewer update-manager gnome-remote-desktop gnome-user-docs gnome-characters gnome-logs orca -y
+sudo apt purge ubuntu-pro-client* -y
 sudo apt autoremove --purge -y
 
 # Misc:
-sudo add-apt-repository multiverse -y
 sudo apt update
 sudo apt install curl git vim gnome-tweaks vlc gnome-shell-extensions gnome-shell-extension-manager cpufrequtils -y
-sudo journalctl --vacuum-size=50M
+sudo journalctl --vacuum-size=100M
 
 # Randomizing MAC address:
 sudo tee /etc/NetworkManager/conf.d/mac-randomize.conf > /dev/null <<EOF
