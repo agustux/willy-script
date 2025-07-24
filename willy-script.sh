@@ -17,7 +17,8 @@ sudo apt autoremove --purge -y
 # Misc:
 sudo add-apt-repository multiverse -y
 sudo apt update
-sudo apt install curl git vim exfat-fuse gnome-tweaks vlc gnome-shell-extensions gnome-shell-extension-manager cpufrequtils -y
+sudo apt install curl git vim gnome-tweaks vlc gnome-shell-extensions gnome-shell-extension-manager cpufrequtils -y
+sudo journalctl --vacuum-size=50M
 
 # Randomizing MAC address:
 sudo tee /etc/NetworkManager/conf.d/mac-randomize.conf > /dev/null <<EOF
@@ -28,7 +29,6 @@ wifi.scan-rand-mac-address=yes
 ethernet.cloned-mac-address=random
 wifi.cloned-mac-address=random
 EOF
-
 sudo chmod 0644 /etc/NetworkManager/conf.d/mac-randomize.conf
 
 # Purging Snap:
@@ -45,9 +45,7 @@ Package: snapd
 Pin: release a=*
 Pin-Priority: -10
 EOF
-
 sudo chown root:root /etc/apt/preferences.d/no-snap.pref
-
 sudo apt autoremove --purge -y
 
 # CPU max frequency on startup:
@@ -143,7 +141,6 @@ do
     gnome-extensions enable ${EXTENSION_ID}
     rm ${EXTENSION_ID}.zip
 done
-
 gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 gsettings set org.gnome.shell.extensions.ding show-home false
