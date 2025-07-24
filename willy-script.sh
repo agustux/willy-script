@@ -11,8 +11,8 @@ sudo rm /swap.img
 sudo sed -i '/^\/swap\.img/s/^/#/' /etc/fstab
 
 # Purging Useless GNOME and Ubuntu utilities:
-sudo apt purge software-properties-* gnome-font-viewer update-manager gnome-remote-desktop gnome-user-docs gnome-characters gnome-logs orca -y
-sudo apt purge ubuntu-pro-client* -y
+sudo apt purge software-properties-* gnome-font-viewer update-manager gnome-remote-desktop gnome-user-docs gnome-characters gnome-logs -y
+sudo apt purge ubuntu-pro-client* ubuntu-docs orca brltty -y
 sudo apt autoremove --purge -y
 
 # Misc:
