@@ -127,7 +127,8 @@ rm protonvpn-stable-release_1.0.8_all.deb
 # GNOME Extensions:
 array=( https://extensions.gnome.org/extension/3193/blur-my-shell/
 https://extensions.gnome.org/extension/6655/openweather/
-https://extensions.gnome.org/extension/6670/bluetooth-battery-meter/ )
+https://extensions.gnome.org/extension/6670/bluetooth-battery-meter/
+https://extensions.gnome.org/extension/6580/open-bar/ )
 
 for i in "${array[@]}"
 do
