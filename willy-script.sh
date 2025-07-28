@@ -148,6 +148,7 @@ gsettings set org.gnome.shell.extensions.ding show-home false
 gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 gsettings set org.gnome.desktop.peripherals.touchpad disable-while-typing false
+gnome-extensions disable ubuntu-dock@ubuntu.com
 
 # Steam Installer:
 wget https://repo.steampowered.com/steam/archive/stable/steam_latest.deb
