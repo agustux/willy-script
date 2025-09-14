@@ -75,6 +75,13 @@ monitor.bluez.properties = {
 }
 EOF
 
+# Sound Fixes
+git clone https://github.com/WeirdTreeThing/chromebook-linux-audio
+cd chromebook-linux-audio
+./setup-audio
+cd ..
+rm -rf chromebook-linux-audio/
+
 # ProtonVPN:
 wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.8_all.deb
 sudo dpkg -i ./protonvpn-stable-release_1.0.8_all.deb && sudo apt update
