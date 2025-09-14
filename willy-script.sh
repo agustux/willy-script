@@ -86,8 +86,7 @@ rm protonvpn-stable-release_1.0.8_all.deb
 # GNOME Extensions:
 array=( https://extensions.gnome.org/extension/3193/blur-my-shell/
 https://extensions.gnome.org/extension/6655/openweather/
-https://extensions.gnome.org/extension/6670/bluetooth-battery-meter/
-https://extensions.gnome.org/extension/6580/open-bar/ )
+https://extensions.gnome.org/extension/6670/bluetooth-battery-meter/ )
 
 for i in "${array[@]}"
 do
@@ -107,6 +106,7 @@ gsettings set org.gnome.shell.extensions.ding show-home false
 gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 gsettings set org.gnome.desktop.peripherals.touchpad disable-while-typing false
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gnome-extensions disable ubuntu-dock@ubuntu.com
 
 # Steam Installer:
