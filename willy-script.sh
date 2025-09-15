@@ -82,6 +82,10 @@ cd chromebook-linux-audio
 cd ..
 rm -rf chromebook-linux-audio/
 
+# USB/port fixes
+echo -e "cros-ec-typec\nintel-pmc-mux" | sudo tee -a /etc/initramfs-tools/modules > /dev/null
+sudo update-initramfs -u -k all
+
 # ProtonVPN:
 wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.8_all.deb
 sudo dpkg -i ./protonvpn-stable-release_1.0.8_all.deb && sudo apt update
